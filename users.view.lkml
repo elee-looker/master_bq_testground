@@ -7,6 +7,13 @@ view: users {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: id_string {
+    type: string
+    sql: CASE WHEN ${id} > 30 THEN CAST(${id} AS STRING)
+              ELSE "< 30"
+         END ;;
+  }
+
   dimension: age {
     type: number
     sql: ${TABLE}.age ;;
