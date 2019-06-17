@@ -4,7 +4,7 @@ connection: "bigquery_test_db_connection"
 include: "*.view"
 
 datagroup: bq_testground_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: EXTRACT(DAY FROM CURRENT_TIMESTAMP);;
   max_cache_age: "1 hour"
 }
 
@@ -51,6 +51,11 @@ explore: orders {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
+  }
+  join: order_items {
+    type: left_outer
+    sql_on: ${orders.id} = ${order_items.order_id} ;;
+    relationship: one_to_many
   }
 }
 

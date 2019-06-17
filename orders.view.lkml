@@ -102,4 +102,14 @@ view: orders {
     type: count
     drill_fields: [id, users.name, users.id, order_items.count]
   }
+
+  measure: cost_sum {
+    type:  sum
+    sql: ${order_items.amount} ;;
+  }
+
+  measure: count2 {
+    type: count
+    drill_fields: [id, users.name, users.id, order_items.count]
+  }
 }
