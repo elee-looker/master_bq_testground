@@ -4,7 +4,7 @@ connection: "bigquery_test_db_connection"
 include: "*.view"
 
 datagroup: bq_testground_default_datagroup {
-  sql_trigger: EXTRACT(DAY FROM CURRENT_TIMESTAMP);;
+  sql_trigger: SELECT EXTRACT(DAY FROM CURRENT_TIMESTAMP);;
   max_cache_age: "1 hour"
 }
 
