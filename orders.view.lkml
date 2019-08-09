@@ -18,7 +18,8 @@ view: orders {
       month,
       quarter,
       hour,
-      year
+      year,
+      hour_of_day
     ]
     sql: ${TABLE}.created_at ;;
   }
@@ -111,5 +112,14 @@ view: orders {
   measure: count2 {
     type: count
     drill_fields: [id, users.name, users.id, order_items.count]
+  }
+
+  measure: count3 {
+    type: count
+  }
+
+  measure: arithmetic {
+    type: number
+    sql: ${count} - ${order_items.count} ;;
   }
 }

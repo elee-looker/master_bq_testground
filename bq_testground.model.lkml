@@ -2,6 +2,7 @@ connection: "bigquery_test_db_connection"
 
 # include all the views
 include: "*.view"
+include: "link_test*"
 
 datagroup: bq_testground_default_datagroup {
   sql_trigger: SELECT EXTRACT(DAY FROM CURRENT_TIMESTAMP);;
