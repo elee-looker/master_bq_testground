@@ -1,6 +1,20 @@
 view: order_items {
   sql_table_name: looker_test.order_items ;;
 
+  parameter: tier_string {
+    type: string
+  }
+
+  parameter: id_tier_bucket_size {
+    type: number
+  }
+
+  dimension: dynamic_id_tier {
+    type: number
+    sql: ROUND(${TABLE}.id / {% parameter id_tier_bucket_size %})
+     * {% parameter id_tier_bucket_size %} ;;
+  }
+
   dimension: id {
     primary_key: yes
     type: number
