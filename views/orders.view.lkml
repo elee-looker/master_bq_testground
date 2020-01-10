@@ -123,7 +123,7 @@ view: orders {
   }
 
   dimension: Customer_byparking {
-  alpha_sort: yes
+#   alpha_sort: yes
   label: "Customer parking bucket"
   type: string
   sql: case when ${Customer_byparking_tmp} ='0' then '0 Parking'
