@@ -1,5 +1,5 @@
 # If necessary, uncomment the line below to include explore_source.
-# include: "bq_testground.model.lkml"
+include: "bq_testground.model.lkml"
 
 view: random_pdt {
   derived_table: {
